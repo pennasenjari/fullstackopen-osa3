@@ -5,6 +5,8 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.static('build'))
 
+//mongodb+srv://pennasenjari:<password>@cluster0.hzxqoyr.mongodb.net/?retryWrites=true&w=majority
+
 let notes = [
   {
     id: 1,
