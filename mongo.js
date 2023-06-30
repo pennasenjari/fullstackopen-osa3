@@ -21,9 +21,10 @@ const Person = mongoose.model('Person', personSchema)
 
 if (args.length === 3) {
   // list persons
+  console.log('Phonebook:')
   Person.find({}).then(result => {
     result.forEach(person => {
-      console.log(person)
+      console.log(person.name, person.number)
     })
     mongoose.connection.close()
   })
