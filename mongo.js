@@ -34,8 +34,8 @@ if (args.length === 3) {
     name: args[3],
     number: args[4],
   })
-  person.save().then(result => {
+  person.save().then(() => {
     console.log('number saved!')
     mongoose.connection.close()
-  }) 
+  })
 }

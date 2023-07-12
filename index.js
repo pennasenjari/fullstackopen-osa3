@@ -20,7 +20,7 @@ const errorHandler = (error, req, res, next) => {
 app.use(cors())
 app.use(express.static('build'))
 app.use(express.json())
-morgan.token('body', function (req, res) {
+morgan.token('body', function (req) {
   return JSON.stringify(req.body)
 })
 app.use(morgan(':method :url :status :res[content-length] :response-time ms :body'))
@@ -72,8 +72,8 @@ app.post('/api/persons', (req, res, next) => {
   const body = req.body
 
   if (!body.name || !body.number) {
-    return res.status(400).json({ 
-      error: 'Both name and number are required' 
+    return res.status(400).json({
+      error: 'Both name and number are required'
     })
   }
 
@@ -87,7 +87,7 @@ app.post('/api/persons', (req, res, next) => {
   person.save().then(savedPerson => {
     res.json(savedPerson)
   })
-  .catch(error => next(error))
+    .catch(error => next(error))
 })
 
 app.put('/api/persons/:id', (req, res, next) => {
